@@ -97,19 +97,23 @@ $listQuestions = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php-google-faq</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
 <body>
     <div class="container">
-
         <?php
         foreach ($listQuestions as $key => $value) {
             foreach ($value as $element) {
-                echo '<' . $element['font-title'] . '>' . $element['title'] . '</' . $element['font-title'] . '>';
-                foreach ($element['text'] as $textElement) {
-                    echo '<p>' . $textElement . '</p>';
-                }
+                echo '<div class="box">';
+                    echo '<' . $element['font-title'] . '>' . $element['title'] . '</' . $element['font-title'] . '>';
+                    foreach ($element['text'] as $textElement) {
+                        echo '<p>' . $textElement . '</p>';
+                    }
+                echo '</div>';
             }
         }
 
