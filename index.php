@@ -39,8 +39,8 @@ $listQuestions = [
             'title' => 'Perché il mio account è associato a un paese?',
             'font-title' => 'h2',
             'text' => [
-                "Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:",
-                "<ol class='box-list'>
+                "<p>Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:</p>",
+                "<ol>
                     <li>
                     La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:
                         <ul>
@@ -52,7 +52,7 @@ $listQuestions = [
                         La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali.
                     </li>
                 </ol>",
-                "Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account."
+                "<p>Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account.</p>"
             ]
 
         ]
@@ -115,13 +115,26 @@ $listQuestions = [
     <div class="container">
         <?php
         foreach ($listQuestions as $key => $value) {
-            foreach ($value as $element) {
-                echo '<div class="box">';
-                echo '<' . $element['font-title'] . '>' . $element['title'] . '</' . $element['font-title'] . '>';
-                foreach ($element['text'] as $textElement) {
-                    echo '<p>' . $textElement . '</p>';
+            // creo questa condizione per isolare la part3 con la lista
+            if ($key === 'part3') {
+                foreach ($value as $element) {
+                    echo '<div class="box">';
+                    echo '<' . $element['font-title'] . '>' . $element['title'] . '</' . $element['font-title'] . '>';
+                    foreach ($element['text'] as $textElement) {
+                        //non stamparmi il <p> come succede per le altre part-n
+                        echo $textElement;
+                    }
+                    echo '</div>';
                 }
-                echo '</div>';
+            } else {
+                foreach ($value as $element) {
+                    echo '<div class="box">';
+                    echo '<' . $element['font-title'] . '>' . $element['title'] . '</' . $element['font-title'] . '>';
+                    foreach ($element['text'] as $textElement) {
+                        echo '<p>' . $textElement . '</p>';
+                    }
+                    echo '</div>';
+                }
             }
         }
 
