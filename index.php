@@ -40,10 +40,18 @@ $listQuestions = [
             'font-title' => 'h2',
             'text' => [
                 "Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:",
-                "La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:",
-                "Google Ireland Limited, se gli utenti sono residenti nello Spazio economico europeo (paesi dell'Unione europea, oltre a Islanda, Liechtenstein e Norvegia) o in Svizzera.",
-                "Google LLC, con sede negli Stati Uniti, per il resto del mondo.",
-                "La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali.",
+                "<ol class='box-list'>
+                    <li>
+                    La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:
+                        <ul>
+                            <li type='a'>Google Ireland Limited, se gli utenti sono residenti nello Spazio economico europeo (paesi dell'Unione europea, oltre a Islanda, Liechtenstein e Norvegia) o in Svizzera.</li>
+                            <li type='a'>Google LLC, con sede negli Stati Uniti, per il resto del mondo.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali.
+                    </li>
+                </ol>",
                 "Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account."
             ]
 
@@ -98,8 +106,8 @@ $listQuestions = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php-google-faq</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
@@ -109,10 +117,10 @@ $listQuestions = [
         foreach ($listQuestions as $key => $value) {
             foreach ($value as $element) {
                 echo '<div class="box">';
-                    echo '<' . $element['font-title'] . '>' . $element['title'] . '</' . $element['font-title'] . '>';
-                    foreach ($element['text'] as $textElement) {
-                        echo '<p>' . $textElement . '</p>';
-                    }
+                echo '<' . $element['font-title'] . '>' . $element['title'] . '</' . $element['font-title'] . '>';
+                foreach ($element['text'] as $textElement) {
+                    echo '<p>' . $textElement . '</p>';
+                }
                 echo '</div>';
             }
         }
